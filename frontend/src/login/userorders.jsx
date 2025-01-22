@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { format, parseISO } from "date-fns";
 
 function OrderCard({ order }) {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -56,10 +57,20 @@ function OrderCard({ order }) {
     }
   };
 
+  // function formatDate(dateString) {
+  //   const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+  //   const date = new Date(dateString);
+  //   return date.toLocaleDateString("en-GB", options);
+  // }
+
   function formatDate(dateString) {
-    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-GB", options);
+    try {
+      const date = parseISO(dateString);
+      return format(date, "dd/MM/yyyy"); // Format: DD/MM/YYYY
+    } catch (error) {
+      console.error("Date parsing error:", error.message, dateString);
+      return "Invalid Date";
+    }
   }
 
   return (
