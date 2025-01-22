@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { format } from "date-fns"; // Import date-fns for formatting
 
 function OrderCard({ order, SetStatus }) {
   const statusColor = 
-  order.status === 'Canceled' ? 'text-red-500' : 
-  order.status === 'delivered' ? 'text-blue-800' : // Dark blue for Delivered
-  'text-green-500'; // Default color for other statuses
+    order.status === "Canceled" ? "text-red-500" : 
+    order.status === "delivered" ? "text-blue-800" : 
+    "text-green-500";
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("created");
   const [OrderId, setOrderId] = useState(null);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
-  // Format the order date in "DD MM YYYY" format
-  const formattedDate = format(new Date(order?.orderDate), 'dd MM yyyy');
 
   // Update product handler
   const handleUpdateClick = (id) => {
@@ -33,7 +29,6 @@ function OrderCard({ order, SetStatus }) {
     try {
       await axios.put(`${backendUrl}/order/updatestatus/${OrderId}`, { status: selectedStatus });
       setIsModalOpen(false);
-      // Optionally: refresh products or show success message
       await Swal.fire({
         position: "center",
         icon: "success",
@@ -43,7 +38,7 @@ function OrderCard({ order, SetStatus }) {
       });
       window.location.reload();
     } catch (error) {
-      console.error('Error updating status:', error);
+      console.error("Error updating status:", error);
     }
   };
 
@@ -70,7 +65,7 @@ function OrderCard({ order, SetStatus }) {
 
           <div className="product-card flex flex-col flex-grow">
             <div className="flex flex-col gap-5 mb-4">
-              <p><strong>Order Date:</strong> {formattedDate}</p> {/* Formatted Date */}
+              <p><strong>Order Date:</strong> {order?.orderDate}</p> {/* Display raw date */}
               <p><strong>Order ID:</strong> {order?._id}</p>
               <p><strong>Total:</strong> Rs.{order?.total}</p>
             </div>
