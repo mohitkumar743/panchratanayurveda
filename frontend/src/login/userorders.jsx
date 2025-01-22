@@ -58,7 +58,7 @@ function OrderCard({ order }) {
 
   return (
     <div className="m-2 text-black h-auto flex flex-col">
-      <div className="bg-white rounded-lg p-4 shadow-md">
+      <div className="bg-white rounded-lg p-4 shadow-md border border-black">
         <div className="mb-4">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-blue-500 inline-block w-3 h-3 rounded-full"></span>

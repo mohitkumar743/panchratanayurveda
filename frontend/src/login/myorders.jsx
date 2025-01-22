@@ -51,7 +51,7 @@ function MyOrders({ Userdata }) {
       <Navbar />
       <div className="text-black text-center text-2xl">My Orders</div>
 
-      <div className="p-[5vh] pt-2 border-black h-[80vh] overflow-y-scroll">
+      <div className="p-[5vh] pt-2  h-[80vh] overflow-y-scroll">
         {sortedOrders.map((Order) => (
           <UserOrders
             key={Order._id}
