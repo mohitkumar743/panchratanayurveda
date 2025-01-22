@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { format, parseISO } from "date-fns";
 
 function OrderCard({ order }) {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -57,22 +56,6 @@ function OrderCard({ order }) {
     }
   };
 
-  // function formatDate(dateString) {
-  //   const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-  //   const date = new Date(dateString);
-  //   return date.toLocaleDateString("en-GB", options);
-  // }
-
-  function formatDate(dateString) {
-    try {
-      const date = parseISO(dateString);
-      return format(date, "dd/MM/yyyy"); // Format: DD/MM/YYYY
-    } catch (error) {
-      console.error("Date parsing error:", error.message, dateString);
-      return "Invalid Date";
-    }
-  }
-
   return (
     <div className="m-2 text-black h-auto flex flex-col">
       <div className="bg-white rounded-lg p-4 shadow-md">
@@ -87,7 +70,7 @@ function OrderCard({ order }) {
 
         <div className="flex flex-wrap gap-4 text-sm md:text-base">
           <p>
-            <strong>Order Date:</strong> {formatDate(order.orderDate)}
+            <strong>Order Date:</strong> {order.orderDate}
           </p>
           <p>
             <strong>Order ID:</strong> {order._id}
