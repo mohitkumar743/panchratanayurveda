@@ -18,7 +18,7 @@ function UserPortal() {
   // Environment variable (using Vite-specific syntax)
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
-    document.title = "Portal || SHIPSHIP";
+    document.title = "Portal || PANCHRATAN AYURVEDA";
   });
 
   const navigate = useNavigate();

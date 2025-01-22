@@ -9,7 +9,7 @@ function Signup() {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
-    document.title = "Signup || SHIPSHIP";
+    document.title = "Signup || PANCHRATAN AYURVEDA";
   });
 
   const [btnaction, setbtnaction] = useState(false);

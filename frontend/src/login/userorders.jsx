@@ -7,7 +7,7 @@ function OrderCard({ order }) {
   const [cancelbtn, setCancelBtn] = useState(false);
 
   useEffect(() => {
-    document.title = "Orders || SHIPSHIP";
+    document.title = "Orders || PANCHRATAN AYURVEDA";
   });
 
   useEffect(() => {

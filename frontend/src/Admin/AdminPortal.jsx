@@ -8,7 +8,7 @@ import AllProduct from "./allproducts";
 
 function AdminPortal() {
   useEffect(() => {
-    document.title = "Admin Portal || SHIPSHIP";
+    document.title = "Admin Portal || PANCHRATAN AYURVEDA";
     document.body.style.overflow = "hidden"; // Disable scrolling on the whole page
     return () => {
       document.body.style.overflow = "auto"; // Re-enable scrolling when leaving the component

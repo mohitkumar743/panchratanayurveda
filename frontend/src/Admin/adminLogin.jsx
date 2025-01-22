@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 function AdminLogin() {
   useEffect(() => {
-    document.title = "Admin Login || SHIPSHIP";
+    document.title = "Admin Login || PANCHRATAN AYURVEDA";
   });
 
   const navigate = useNavigate();

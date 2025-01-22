@@ -15,7 +15,7 @@ function Home() {
    const [cart, setCart] = useState([]);
    const backendUrl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
-    document.title = "Home || SHIPSHIP";
+    document.title = "Home || PANCHRATAN AYURVEDA";
   });
   useEffect(() => {
     const fetchProducts = async () => {
