@@ -12,6 +12,7 @@ import MyOrders from './login/myorders'
 import UserShop from './login/userPortal'
 import AllProduct from './Admin/allproducts'
 import AllOrders from './Admin/allorders'
+import "./Components/home.css";
 
 
 

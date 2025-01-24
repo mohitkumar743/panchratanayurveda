@@ -1,4 +1,4 @@
-import React, { useEffect ,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 import "./home.css";
@@ -9,11 +9,10 @@ import { FiArrowRight } from "react-icons/fi";
 import axios from "axios";
 import ShopproductCard from "./shopproduct";
 
-
 function Home() {
- const [products, setProducts] = useState([]);
-   const [cart, setCart] = useState([]);
-   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     document.title = "Home || PANCHRATAN AYURVEDA";
   });
@@ -22,16 +21,15 @@ function Home() {
       const { data } = await axios.get(`${backendUrl}/products`);
 
       // Add cartValue: 1 to each product
-      const productsWithCartValue = data.map(product => ({
+      const productsWithCartValue = data.map((product) => ({
         ...product,
-        cartValue: 1
+        cartValue: 1,
       }));
 
       setProducts(productsWithCartValue);
     };
 
     fetchProducts();
-    
   }, []);
   const handleClick = (product) => {
     // Check if the product is already in the cart
@@ -51,28 +49,32 @@ function Home() {
   return (
     <>
       <Advertisingbar />
-      <Navbar size={cart.length} cart={cart} setCart={setCart} setProducts={setProducts} />
+      <Navbar
+        size={cart.length}
+        cart={cart}
+        setCart={setCart}
+        setProducts={setProducts}
+      />
       <Slidebar />
-      <div className="h-[85vh] ">
-        <h1 className="font-bold text-3xl mt-4 ml-2">Products In Demand</h1>
+      <div className="h-[90vh]  ">
+        <h1 className="font-bold text-3xl my-5 pl-11">Products In Demand</h1>
         {/* <Product /> */}
-        <div className="App text-white max-h-[80vh]   overflow-x-auto">
-        {/* <h1 className="text-center text-5xl">Products</h1> */}
-        <div className="flex gap-4 px-4 md:justify-center justify-normal ">
-          {products.map((product) => (
-            <ShopproductCard
-              key={product._id}
-              product={product}
-              handleClick={handleClick}
-            />
-          ))}
+        <div className="App text-black max-h-fit">
+          {/* <h1 className="text-center text-5xl">Products</h1> */}
+          <div className="flex gap-x-4 overflow-x-auto scrollbar scrollbar-none scrollbar-track-gray-200">
+            {products.map((product) => (
+              <ShopproductCard
+                key={product._id}
+                product={product}
+                handleClick={handleClick}
+              />
+            ))}
+          </div>
         </div>
       </div>
-      </div>
-
 
       {/* imunity booster */}
-      <div className="md:h-[55vh] h-[130vh] flex justify-center items-center flex-col">
+      <div className="h-fit  flex justify-center items-center flex-col">
         <div className="flex w-full h-full flex-col md:flex-row">
           {" "}
           {/* Flex direction changes on medium screens and above */}
@@ -120,49 +122,48 @@ function Home() {
 
       {/* bueaty product starts */}
 
-      <div className="md:h-[55vh] h-[130vh] flex justify-center items-center flex-col">
-  <div className="flex w-full h-full flex-col md:flex-row">
-    {/* Image div */}
-    <div className="w-full md:w-[40%] p-10 flex justify-center items-center order-first md:order-last">
-      <img
-        src="/categery/bueitycare.png" // Image path from the public folder
-        alt="Booster"
-        className="max-w-full max-h-full object-contain"
-      />
-    </div>
+      <div className="h-fit flex justify-center items-center flex-col">
+        <div className="flex w-full h-full flex-col md:flex-row">
+          {/* Image div */}
+          <div className="w-full md:w-[40%] p-10 flex justify-center items-center order-first md:order-last">
+            <img
+              src="/categery/bueitycare.png" // Image path from the public folder
+              alt="Booster"
+              className="max-w-full max-h-full object-contain"
+            />
+          </div>
 
-    {/* Text div */}
-    <div className="w-full md:w-[60%] flex justify-center items-center order-last md:order-first ">
-      <div className="text-black text-center">
-        <h2 className="text-2xl md:w-[90%] px-5 md:px-1 font-bold mb-4">
-          Personal & Beauty Care
-        </h2>
-        <p className="text-sm md:w-[90%] px-5 md:px-1 text-center mb-2">
-          Pair text with an image to focus on your chosen product,
-          collection, or blog post. Add details on availability, style, or
-          even provide a review.
-        </p>
+          {/* Text div */}
+          <div className="w-full md:w-[60%] flex justify-center items-center order-last md:order-first ">
+            <div className="text-black text-center">
+              <h2 className="text-2xl md:w-[90%] px-5 md:px-1 font-bold mb-4">
+                Personal & Beauty Care
+              </h2>
+              <p className="text-sm md:w-[90%] px-5 md:px-1 text-center mb-2">
+                Pair text with an image to focus on your chosen product,
+                collection, or blog post. Add details on availability, style, or
+                even provide a review.
+              </p>
 
-        <div className="flex md:w-[90%] px-5 md:px-1 justify-center mt-4">
-          <button
-            // onClick={() => handleClick(product)}
-            className="btn text-black btn-outline mb-2"
-          >
-            Shop now
-          </button>
+              <div className="flex md:w-[90%] px-5 md:px-1 justify-center mt-4">
+                <button
+                  // onClick={() => handleClick(product)}
+                  className="btn text-black btn-outline mb-2"
+                >
+                  Shop now
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
 
       {/* for mobile shown only starts */}
       {/* for mobile shown only ends */}
       {/* bueaty product starts */}
 
       {/* healthcare started */}
-      <div className="md:h-[55vh] h-[130vh] flex justify-center items-center flex-col">
+      <div className="h-fit flex justify-center items-center flex-col">
         <div className="flex w-full h-full flex-col md:flex-row">
           {" "}
           {/* Flex direction changes on medium screens and above */}
@@ -201,16 +202,30 @@ function Home() {
       </div>
       {/* healthcare ended */}
 
-      <div className="h-[45vh] bg-red-400 flex justify-center items-center flex-col">
-        <h1 className="font-bold text-3xl mt-4 ml-2 text-center">
-          SUBSCRIBE TO OUR EMAILS
-        </h1>
-        <h1 className=" text-xl mt-4 ml-2 text-center">
-          Be the first to know about new collections and exclusive offers.
-        </h1>
-        <div className="h-[9vh] w-[80vw] sm:w-[35vw] mt-5  text-black flex items-center px-2 border-[3px] justify-between border-black">
-          <p>Email</p>
-          <FiArrowRight className="ml-2 text-black" /> {/* Right arrow */}{" "}
+      <div className="h-fit pb-10 bg-red-400 flex flex-col sm:flex-row justify-center items-center px-4 sm:px-10">
+        {/* Left Part: Logo */}
+        <div className="w-full sm:w-1/2 flex justify-center items-center mb-6 sm:mb-0">
+          <img
+            src="/icon.png" // Replace with your logo URL
+            alt="Logo"
+            className="h-40 w-40 sm:h-40 sm:w-40 lg:h-48 lg:w-48 object-contain "
+          />
+        </div>
+
+        {/* Right Part: Subscription Content */}
+        <div className="w-full sm:w-1/2 flex flex-col items-center">
+          <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl mt-4 text-center">
+            SUBSCRIBE TO OUR EMAILS
+          </h1>
+          <h2 className="text-lg sm:text-xl lg:text-2xl mt-4 text-center">
+            Be the first to know about new collections and exclusive offers.
+          </h2>
+          <div className="h-[8vh] w-full max-w-md mt-5 text-black flex items-center px-4 border-2 border-black rounded-lg bg-white shadow-lg">
+            <p className="text-sm sm:text-base flex-grow">Email</p>
+            <button className="text-black">
+              <FiArrowRight size={20} />
+            </button>
+          </div>
         </div>
       </div>
       <div className="h-[30vh] bg-black relative">

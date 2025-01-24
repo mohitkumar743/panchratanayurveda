@@ -1,40 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-// import { useCart } from '../context/CardContext';
+import React from 'react';
 
-function ProductCard({ product, handleClick }) {
+const ProductCard = ({ product, handleClick }) => {
   return (
-    <>
-      <div className=" text-black  h-[80vh]  flex-col   ">
-        <div className="product-card flex flex-col items-center ">
-          <img
-            className=""
-            // src="https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            src={product.image}
-            alt={product.name}
-            style={{ height: "55vh" }}
-          />
-
-          <div className="text-center">
-            <h1 className="text-xl h-[8vh]  ">
-              <strong>{product.name}</strong>
-            </h1>
-            {/* <p className="text-2xl">{product.description}</p> */}
-            <p className="text-xl text-center ">Rs:{product.price}</p>
-            <div className="flex items-center justify-center   pt-1">
-              {/* <button className="btn text-black btn-outline m-3 w-[100px] ">buy now</button> */}
-              <button
-                onClick={() => handleClick(product)}
-                className="btn text-black btn-outline m-2 w-[100px] "
-              >
-                add to cart
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="min-w-[250px] max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-95 flex flex-col h-full">
+      <div className="w-full h-[50vh]">
+        <img
+          className="w-full h-full object-cover"
+          src={product.image}
+          alt={product.name}
+        />
       </div>
-    </>
+      <div className="p-4 flex flex-col flex-grow">
+        <h2 className="text-lg font-semibold text-gray-800">{product.name}</h2>
+        <p className="text-gray-600 text-3xl my-2">Rs: {product.price}</p>
+        <button
+          onClick={() => handleClick(product)}
+          className="mt-auto bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
   );
-}
+};
 
 export default ProductCard;
