@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 function Signup() {
+  
   // Environment variable (using Vite-specific syntax)
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 

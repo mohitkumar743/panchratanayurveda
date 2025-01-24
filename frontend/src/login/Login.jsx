@@ -5,6 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function Login() {
+  const [btnaction, setbtnaction] = useState(false);
   const navigate = useNavigate();
 
   // Redirect if user is already logged in
@@ -104,11 +105,11 @@ function Login() {
                 placeholder="Enter Your Password"
               />
 
-              <button
+              <button disabled={btnaction}
                 className="w-full py-3 rounded-md bg-green-500 text-white font-semibold hover:bg-green-600 transition duration-200"
                 type="submit"
-              >
-                Login
+              > {btnaction?"Please Wait":"Login"}
+                
               </button>
             </div>
             <div className="text-center">

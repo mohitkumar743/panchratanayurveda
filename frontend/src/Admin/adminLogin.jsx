@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function AdminLogin() {
+  const [btnaction, setbtnaction] = useState(false);
   useEffect(() => {
     document.title = "Admin Login || PANCHRATAN AYURVEDA";
   });
@@ -91,11 +92,12 @@ function AdminLogin() {
               />
             </div>
             <div>
-              <button
+              <button disabled={btnaction}
                 className="w-full py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-200"
                 type="submit"
               >
-                Admin Login
+                {btnaction?"Please Wait":"Admin Login"}
+               
               </button>
             </div>
           </form>

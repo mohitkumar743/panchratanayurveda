@@ -180,6 +180,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function Payment() {
+  const [btnaction, setbtnaction] = useState(false);
   const location = useLocation();
   const { fullOrder } = location.state || {};
   const navigate = useNavigate();
@@ -244,7 +245,7 @@ function Payment() {
       </h2>
 
       <div className="flex flex-wrap gap-4 justify-center mb-8">
-        <button
+        <button disabled={btnaction}
           onClick={() => setSelectedPaymentMethod("Card")}
           className={`py-2 px-6 rounded-lg text-center w-40 ${
             selectedPaymentMethod === "Card"
@@ -254,25 +255,25 @@ function Payment() {
         >
           Card
         </button>
-        <button
+        <button disabled={btnaction}
           onClick={() => setSelectedPaymentMethod("COD")}
           className={`py-2 px-6 rounded-lg text-center w-40 ${
             selectedPaymentMethod === "COD"
               ? "bg-blue-500 text-white"
               : "bg-gray-200 text-black"
           }`}
-        >
+        > {btnaction?"Please Wait":"Login"}
           Cash on Delivery (COD)
         </button>
       </div>
 
       {selectedPaymentMethod === "COD" && (
         <div className="flex justify-center">
-          <button
+          <button disabled={btnaction}
             onClick={codhandleSubmit}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Pay Now
+          > {btnaction?"Please Wait":"Place Order"}
+            
           </button>
         </div>
       )}
