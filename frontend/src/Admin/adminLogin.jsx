@@ -24,8 +24,9 @@ function AdminLogin() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
 
+    e.preventDefault();
+    setbtnaction(true);
     axios
       .post(`${backendUrl}/user/admin`, AdminData)
       .then((response) => {
@@ -37,6 +38,7 @@ function AdminLogin() {
             showConfirmButton: false,
             timer: 1500,
           });
+          setbtnaction(false);
           localStorage.setItem("AdminAuthtoken", response.data.token); // Store token in localStorage
           navigate("/Admin/AdminPortal"); // Navigate to admin portal
         } else {

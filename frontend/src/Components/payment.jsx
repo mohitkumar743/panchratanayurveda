@@ -218,6 +218,7 @@ function Payment() {
 
   const codhandleSubmit = async (e) => {
     e.preventDefault();
+    setbtnaction(true);
 
     const updatedOrder = {
       ...fullOrder,
@@ -232,6 +233,7 @@ function Payment() {
         title: "Successful!",
         text: `Your order is placed successfully and your order ID is ${response.data._id}`,
       });
+      setbtnaction(false);
       navigate("/login");
     } catch (error) {
       console.error("Error saving order:", error);

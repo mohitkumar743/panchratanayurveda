@@ -36,6 +36,7 @@ function Login() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    setbtnaction(true);
 
     axios
       .post(`${backendUrl}/user/login`, signinData)
@@ -66,6 +67,7 @@ function Login() {
           mobilenumber: "",
           password: "",
         });
+        setbtnaction(false);
       })
       .catch((error) => {
         const errorMessage =

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function AddressPage() {
+  const [btnaction, setbtnaction] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { order } = location.state || {}; // Retrieve order details from location state
@@ -24,13 +25,14 @@ function AddressPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setbtnaction(true);
 
     // Merge form data with order details
     const fullOrder = {
       ...order,
       deliveryAddress: form,
     };
-
+    setbtnaction(false);
     alert("Address submitted successfully!");
 
     // Navigate to the payment page with full order data
@@ -125,11 +127,11 @@ function AddressPage() {
                 />
               </div>
             ))}
-            <button
+            <button disabled={btnaction}
               className="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:outline-none"
               type="submit"
-            >
-              Submit Address
+            > {btnaction?"Please Wait":"Submit Address"}
+              
             </button>
           </form>
         </div>
