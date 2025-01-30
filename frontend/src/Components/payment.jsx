@@ -264,8 +264,8 @@ function Payment() {
               ? "bg-blue-500 text-white"
               : "bg-gray-200 text-black"
           }`}
-        > {btnaction?"Please Wait":"Login"}
-          Cash on Delivery (COD)
+        > {btnaction?"Please Wait":"Cash on Delivery (COD)"}
+          
         </button>
       </div>
 
