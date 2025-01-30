@@ -81,7 +81,7 @@ function Home() {
           {/* 40% width div */}
           <div className="w-[100%] md:w-[40%] p-10 flex justify-center items-center">
             <img
-              src="/categery/booster.png" // Image path from the public folder
+              src="/categery/boosterr.jpeg" // Image path from the public folder
               alt="Booster"
               className="max-w-full max-h-full object-contain"
             />
@@ -127,7 +127,7 @@ function Home() {
           {/* Image div */}
           <div className="w-full md:w-[40%] p-10 flex justify-center items-center order-first md:order-last">
             <img
-              src="/categery/bueitycare.png" // Image path from the public folder
+              src="/categery/bueitycare.jpeg" // Image path from the public folder
               alt="Booster"
               className="max-w-full max-h-full object-contain"
             />
@@ -170,7 +170,7 @@ function Home() {
           {/* 40% width div */}
           <div className="w-[100%] md:w-[40%] p-10 flex justify-center items-center">
             <img
-              src="/categery/healthcare.png" // Image path from the public folder
+              src="/categery/healthcare.jpeg" // Image path from the public folder
               alt="Booster"
               className="max-w-full max-h-full object-contain"
             />

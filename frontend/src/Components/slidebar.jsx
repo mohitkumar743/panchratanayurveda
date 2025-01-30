@@ -4,7 +4,7 @@ import 'react-slideshow-image/dist/styles.css';
 
 const slideImages = [
   {
-    url: '/slider/slider1.png', // Image from public/slider folder
+    url: '/slider/slider1.jpeg', // Image from public/slider folder
     caption: 'Slide 1',
   },
   {
